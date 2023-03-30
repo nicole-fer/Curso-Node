@@ -5,7 +5,7 @@ const app = express()
 //definindo rotas
 
 app.get("/", function(req,res){
-    res.send("Hello World!")
+    res.send("<h1> Olá mundo!</h1>")
 })
 
 app.get("/home", function(req,res){
