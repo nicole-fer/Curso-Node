@@ -8,12 +8,8 @@ app.get("/", function(req,res){
     res.sendFile(__dirname + "/HTML/index.html")
 })
 
-app.get("/home", function(req,res){
-    res.send("Rota Home")
-})
-
-app.get("/about", function(req,res){
-    res.send("Rota About")
+app.get("/sobre", function(req,res){
+    res.sendFile(__dirname + "/HTML/sobre.html")
 })
 
 //passando paramentros na rota 
