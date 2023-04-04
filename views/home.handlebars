@@ -1,0 +1,26 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<div class="mt-12 ml-6 mr-6 relative overflow-x-auto">
+    <h1 class="mb-6">Lista de posts</h1>
+
+    <table class="w-full text-sm text-left text-gray-500 border border-gray-200">
+        <tr class="text-md text-gray-700 uppercase bg-gray-100">
+            <td  scope="col" class="px-6 py-3">Título</td>
+            <td  scope="col" class="px-6 py-3">Conteudo</td>
+            <td  scope="col" class="px-6 py-3">Deletar</td>
+        </tr>
+    {{#each posts}}
+        <tr class="bg-white border-b">
+            <td class="px-6 py-4">{{titulo}}</td>
+            <td class="px-6 py-4">{{conteudo}}</td>
+            <td class="px-6 py-4">
+                <a href="/deletar/{{id}}">
+                    <button  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Deletar
+                    </button>
+                </a>
+
+            </td>
+        </tr>
+    {{/each}}
+    </table>
+</div>
