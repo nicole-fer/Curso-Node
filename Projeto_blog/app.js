@@ -1,19 +1,31 @@
 //Carregando módulos
 const express = require('express')
 const handlebars = require('handlebars')
+const { engine } = require('express-handlebars')
 const bodyParser = require('body-parser')
 const app = express()
+const admin = require("./routes/admin")
 //const mongoose = require('mongoose')
 
 
 //Configurações
-    //bodyparser
-    app.use((bodyParser.urlencoded({
+    //BodyParser
+    app.use(bodyParser.urlencoded({
         extended:true
-    })))
+    }))
     app.use(bodyParser.json())
 
+    //Handlebars
+    app.engine('handlebars', engine())
+    app.set('view engine', 'handlebars')
+    app.set('views', "./views");
+
+    //Mongoose
 //Rotas
+    app.get('/', (req, res) => {
+        res.send("Rota principal")
+    })
+    app.use('/admin', admin)
 
 
 //Outras
