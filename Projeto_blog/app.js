@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const admin = require("./routes/admin")
 const path = require('path')
-//const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 
 //Configurações
@@ -22,6 +22,11 @@ const path = require('path')
     app.set('views', "./views");
 
     //Mongoose
+    mongoose.connect('mongodb://127.0.0.1/blogapp').then(() => {
+        console.log("Conectado ao banco")
+    }).catch((err) => {
+        console.log("Erro ao se conectar" + err)
+    })
 
     // Arq
     app.use(express.static(path.join(__dirname + "/public")))
